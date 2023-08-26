@@ -109,6 +109,7 @@ def complete():
     else:
         return render_template("index.html")
 
+
 @app.route("/balance")
 def balance():
     """
@@ -123,10 +124,12 @@ def balance():
         print(f"Error getting balance: {e}")
         return render_template("balance.html", error="Error getting balance.")
 
+
 @app.route("/goals")
 def goals():
     """
-    Get the goals of the user. If the user is not logged in we redirect them to the login page. Uses forms for each goal to allow the user to complete them as long as they upload a photo along with it,
+    Get the goals of the user. If the user is not logged in we redirect them to the login page. Uses forms for each
+    goal to allow the user to complete them as long as they upload a photo along with it,
     """
     if "username" not in session:
         return redirect(url_for("login"))
