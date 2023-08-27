@@ -1,3 +1,5 @@
+# Terra Taskers
+
 ## Inspiration
 People around the world, now more than ever, understand the devastating threats posed by climate change, particularly with historically damaging wildfires, hurricanes, earthquakes, and other natural disasters. However, the issue for most citizens is finding impactful changes they can make in their daily lives. In addition, even when they are aware of specific practices, intrinsic motivation may not be enough to drive them to continue those actions. With this in mind, we wanted a tool that provides users with tasks that help them go green and includes extrinsic methods of motivation. In creating this, we combined these goals it with another timely topic: the blockchain. The blockchain receives a multitude of negative press believing that it is harmful to the environment, and we thought this project is the perfect opportunity to change those beliefs. We are using the blockchain to directly power environmentally friendly activity and have a positive impact, providing an example for how this technology of the future can be used to protect that future itself.
 
