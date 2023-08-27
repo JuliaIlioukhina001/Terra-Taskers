@@ -1,25 +1,48 @@
 # Terra Taskers
 
+![Terra Taskers Logo](https://your-image-url.com)
+
+## Table of Contents
+
+- [Inspiration](#inspiration)
+- [What it Does](#what-it-does)
+- [How We Built It](#how-we-built-it)
+- [Challenges We Ran Into](#challenges-we-ran-into)
+- [Accomplishments We're Proud Of](#accomplishments-were-proud-of)
+- [What We Learned](#what-we-learned)
+- [What's Next for Terra Taskers](#whats-next-for-terra-taskers)
+
 ## Inspiration
-People around the world, now more than ever, understand the devastating threats posed by climate change, particularly with historically damaging wildfires, hurricanes, earthquakes, and other natural disasters. However, the issue for most citizens is finding impactful changes they can make in their daily lives. In addition, even when they are aware of specific practices, intrinsic motivation may not be enough to drive them to continue those actions. With this in mind, we wanted a tool that provides users with tasks that help them go green and includes extrinsic methods of motivation. In creating this, we combined these goals it with another timely topic: the blockchain. The blockchain receives a multitude of negative press believing that it is harmful to the environment, and we thought this project is the perfect opportunity to change those beliefs. We are using the blockchain to directly power environmentally friendly activity and have a positive impact, providing an example for how this technology of the future can be used to protect that future itself.
 
-## What it does
-Each week, Terra Taskers provides users with a list of specific tasks to help them go green. Completing these tasks and providing a photograph for evidence rewards users with a payment through Circle, as well as a post to our global feed. Through our payment reward system, users are supplemented for the additional costs that sometimes come with the implementation of environmentally friendly practices and are thus encouraged rather than discouraged to focus on improving the environment. The feed also ensures that our users are motivated by the successes of other users as they can see posts of other users making similar changes because nobody is truly alone in this battle against climate change. Overall, this adds two methods of extrinsic motivation to ensure that no matter your values, you’ll be able to remain committed to saving the planet, one task at a time.
+**Terra Taskers** was born out of the urgent need to combat climate change and inspire global citizens to take actionable steps toward a greener future. The project aims to address the challenge of finding impactful changes in daily routines and sustaining motivation to continue eco-friendly practices. By integrating extrinsic motivation and the power of blockchain technology, Terra Taskers provides a platform for users to engage in green tasks while being rewarded for their efforts.
 
-## How we built it
-For the frontend, we used HTML tags and CSS styling. We linked all the HTML sections to a shared Stylesheet to improve the readability of the code. Additionally, we used Javascript for the task submission form and the login form.
-We ensured that our progressive web app promotes accessibility. For instance, all provided images have alternative text so that all content is also available for users with visual impairments that rely on assistive technologies. We used colours and visuals that would evoke a sense of responsibility to protect our planet while also remaining accessible for all users.
-For the backend of our site, we used the Flask framework along with Python to handle required web app operations. To store the data, we used a serverless platform called deta.space as they offer both file storage as well as a no-sql database in their free tier. In order to provide our users with rewards, we used Circle to interact with multiple blockchains, and it allowed us to payout FLOW tokens to users when completing rewards. We chose to use the FLOW token as it provides near-zero latency when users wish to cash out their funds.
+## What it Does
 
-## Challenges we ran into
-One of the major challenges we experienced throughout the process of creating this project is how to ensure that our users are truly completing their tasks rather than taking advantage of our compensation. In the end, we came up with a multifaceted solution to this issue. First, users must submit an image that acts as evidence if they wish to claim the compensation associated with that task. This means that they must put in the required effort to take an image and upload it to our site which means they must be committed. In addition, we will be able to see if that image meets the requirements of the task and the introduction of the feed means that there are added levels of accountability because the public will be able to see that you did not actually complete the task. We hope that this added level of peer pressure will ensure that users do not submit images that are not actually of them completing the task. 
+Terra Taskers offers users a weekly list of specific tasks designed to promote environmentally friendly behaviors. Upon task completion, users can submit photographic evidence, earning them a payment through Circle and a spot on the global feed. The payment system not only offsets the costs associated with eco-friendly practices but also encourages users to actively participate in preserving the environment. The global feed showcases user achievements, fostering a sense of community and motivation. Terra Taskers thus employs both extrinsic rewards and social accountability to drive consistent commitment to eco-conscious actions.
 
-## Accomplishments that we're proud of
-One of the most complex aspects of our project was the implementation of the feed section of the site. We originally had some issues with being able to upload and store the images from the checklist submissions. Once we found solutions to this using Deta, we then had to figure out how we would make this social media-esque feature. We built the shell of how the feed would work with the model of their submission image with a caption including their username and the goal they had completed. We also wanted to display exactly how much money our product had paid out to users for completing goals to give users a feeling of accomplishment and the feedback that others are involved. Through this format, we pulled information from the Deta database that provided this information for each post which created this feature that was important to our product. While we were originally overwhelmed with how to make this happen, by breaking it down into achievable sections, we were able to complete something that we had been worried about.
+## How We Built It
 
-## What we learned
-Going into this hackathon, we were all relatively inexperienced with Web3 so we had some doubts about whether whatever product we built could live up to our standards. However, we were pleasantly surprised by how simple Circle was to implement. Its documentation was clear, and we found that it and its testnet had all capabilities that we thought of needing throughout this hackathon. We also were able to incorporate Flow which was entirely new to us, but we found that it was simple to use. In the end, the area that we were most concerned about became the least of our worries.
-Now that we’ve had firsthand experience using Web3 technologies, we have learned how beneficial they can be to our projects in the future. After this hackathon, we are incredibly more comfortable using these tools and would not hesitate to do so.
+The frontend of Terra Taskers was crafted using HTML tags and CSS styling, with a shared stylesheet enhancing code readability. JavaScript was employed for interactive elements like the task submission and login forms. Accessibility was prioritized through alternative text for images, catering to users with visual impairments and assistive technologies. The color scheme and visuals aim to evoke environmental responsibility while ensuring inclusivity.
 
-## What's next for Terra Taskers
-Our next priority for additional functionality for Terra Taskers is implementing an AI that provide alternative text for these images to improve the accessibility of our feed to those using screen readers. This AI would also then manage content moderation for the feed which is currently controlled by the development team. AI is another topic that has received negative press, but we know that its implementation in this project would also help to turn that around as it would be benefitting the planet. Another way we would like to use AI would be to use an API to generate new tasks for the weekly lists. This could help improve the depth of our task database and improve the chances that a user finds a practice that they genuinely enjoy. This could also allow us to tailor the tasks to the region that our users are from because cultural differences could affect their ability to complete tasks that we may come up with as North Americans. Not only would this benefit the users from that region, but everyone could learn about those methods through the feed and learn more about other areas around the world! Finally, we would love to create partnerships with companies and organizations that are environmentally friendly or create environmentally friendly products. This would allow us to add an additional funding source in exchange for exposure and tasks related to the products or services of these partners. An example could be purchasing a beyond meat product made by a certain partner or donating money to an organization working to combat climate change. 
+The backend relied on the Flask framework and Python for web app operations. Data was managed using the serverless platform Deta, offering file storage and a no-SQL database. To reward users, Circle interacted with blockchains, facilitating FLOW token payouts upon task completion. FLOW tokens were chosen for their low latency, optimizing user experience.
+
+## Challenges We Ran Into
+
+A significant challenge was ensuring task completion integrity and preventing misuse of compensation. The team devised a multifaceted solution: requiring image evidence for task claims, fostering commitment, and enhancing accountability. The public feed introduced an additional layer of peer oversight, discouraging false submissions. This holistic approach aimed to uphold the platform's integrity.
+
+## Accomplishments We're Proud Of
+
+The implementation of the social media-inspired global feed emerged as a complex achievement. Overcoming image storage obstacles using Deta, the team designed a feed structure displaying user-submitted images with captions, including usernames and completed goals. Financial transparency was also integrated, showcasing the total payouts for user achievements. Breaking down the challenge into manageable steps enabled the realization of this vital feature.
+
+## What We Learned
+
+Terra Taskers led the team to explore and embrace Web3 technologies. Circle's user-friendly integration surprised the team, and the simplicity of Flow's usage highlighted the potential of blockchain solutions. This experience underscored the value of Web3 tools in future projects, bolstering the team's confidence in their utilization.
+
+## What's Next for Terra Taskers
+
+The roadmap for Terra Taskers includes implementing AI to generate alternative text for images, enhancing feed accessibility for screen reader users. AI-driven content moderation is another goal, relieving the development team of manual oversight. Additionally, an AI-powered API could diversify task recommendations, considering cultural nuances. Collaborations with environmentally friendly companies and organizations are envisioned, introducing diverse funding sources while promoting impactful tasks and products.
+
+**Join us in the journey to save the planet, one task at a time!**
+
+
+
