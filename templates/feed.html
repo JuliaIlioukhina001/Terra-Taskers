@@ -1,0 +1,70 @@
+<!-DOCTYPE html>
+<html>
+   <head>
+      <title>Terra Taskers</title>
+      <!--link to the shared styling-->
+      <link rel="stylesheet" type="text/css" href="static/styles.css">
+      <style>
+          /*Styling the display of the posts*/
+        .post {
+            width: 500px;
+            height: 600px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        p {
+            margin-top:0px;
+        }
+        .infoC {
+            display: inline-flex;
+            margin:2px;
+            align-items: center;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        #userName {
+            margin-right:20px;
+        }
+        #task {
+            margin-top: 0px;
+            font-weight: bold;
+        }
+      </style>
+
+   </head>
+   <body>
+        <!--Decorations and page options-->
+        <nav>
+            <h1>Terra Taskers</h1>
+            <img id="earth" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="earth2" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="bulb" src="static/bulb.png" width="75" length="75" alt text="innovation">
+            <img id="bulb2" src="staic/bulb.png" width="75" length="75" alt text="innovation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/goals">Checklist</a></li>
+                <li><a href="/feed">Feed</a></li>
+            </ul>
+        </nav>
+
+        {% for goal in feed %}
+        <div class="infoC">
+            <p id="userName">Username: {{ goal['username'] }}</p>
+            <p>Amount paid: ${{ goal['reward'] }}</p>
+        </div>
+        <img class="post" src="/cdn/{{ goal['image'] }}"  alt text="post">
+        <p id="task">Task completed: {{ goal['goal'] }}</p>
+        <br>
+           {% endfor %}
+   </body>
+</html>

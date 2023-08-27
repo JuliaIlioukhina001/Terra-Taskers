@@ -1,0 +1,91 @@
+<!-DOCTYPE html>
+<html>
+   <head>
+      <title>Terra Taskers</title>
+      <!--link to the shared styling-->
+      <link rel="stylesheet" type="text/css" href="static/styles.css">
+      <style>
+        /*Styling the checklist*/
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 15px auto;
+            width: 500px;
+            background-color: rgba(234, 239, 231, 0.807);
+            border: 2px solid black;
+        }
+        /*Styling the tasks in the checklist*/
+        .checklist li {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /*Styling the position of the checkboxes*/
+        .checklist input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        /*Styling the tasks once the checkbox has been checked*/
+        .checklist input[type="checkbox"]:checked + label {
+            text-decoration: line-through;
+            color: #778;
+        }
+
+        /*Styling the section where photos are ulpoaded*/
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+      </style>
+
+   </head>
+   <body>
+        <!--Decorations and page options-->
+        <nav>
+            <h1>Terra Taskers</h1>
+            <img id="earth" src="earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="earth2" src="earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="bulb" src="bulb.png" width="75" length="75" alt text="innovation">
+            <img id="bulb2" src="bulb.png" width="75" length="75" alt text="innovation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/goals">Checklist</a></li>
+                <li><a href="/feed">Feed</a></li>
+            </ul>
+        </nav>
+        <br>
+        <!--Checklist for tasks-->
+        <ul class="checklist">
+        <!-- Check if the user has any goals -->
+        {% if goals == [] %}
+            <h2>You have no goals yet! Click <a href="/get_goals">here</a> to get some!</h2>
+            {% else %}
+
+            {% for goal in goals %}
+                <form action="complete" method="POST" enctype="multipart/form-data">
+                    <li>
+                        <input type="checkbox" name="task_completed">
+                        <label>{{ goal['goal'] }}</label>
+                        <div class="upload-section">
+                            <input type="file" name="image" accept="image/*" >
+                            <input type="hidden" name="goal_name" value="{{ goal['goal'] }}">
+                            <button type="submit" class="upload-button" onclick="hide('{{ goal['goal'] }}')">Upload</button>
+                        </div>
+                        <label class="price-label">Price: ${{ goal['reward'] }}</label>
+                </li>
+                </form>
+            {% endfor %}
+
+        {% endif %}
+        </ul>
+    <script>
+        function hide(goalName) {
+            document.querySelector(`[data-goal="${goalName}"]`).style.display = "none";
+        }
+    </script>
+   </body>
+</html>

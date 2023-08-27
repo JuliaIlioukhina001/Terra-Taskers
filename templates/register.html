@@ -1,32 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-900 flex items-center justify-center h-screen">
-    <div class="w-full max-w-sm bg-gray-800 p-8 shadow-md rounded-lg">
-        <h2 class="text-3xl font-semibold text-gray-100 mb-6 text-center">Crypto Registration</h2>
-        {% if error %}
-        <p class="text-red-500 mb-4">{{ error }}</p>
-        {% endif %}
-        <form action="{{ url_for('register') }}" method="POST">
-            <div class="mb-4">
-                <label for="username" class="block text-sm font-medium text-gray-400 mb-1">Username</label>
-                <input type="text" id="username" name="username" class="w-full px-3 py-2 bg-gray-700 text-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div class="mb-6">
-                <label for="password" class="block text-sm font-medium text-gray-400 mb-1">Password</label>
-                <input type="password" id="password" name="password" class="w-full px-3 py-2 bg-gray-700 text-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-            </div>
-            <div class="flex items-center justify-between">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Register</button>
-                <a href="/login" class="text-gray-400 text-sm">Already have an account?</a>
-            </div>
-        </form>
-    </div>
-</body>
+<!-DOCTYPE html>
+<html>
+   <head>
+      <title>Terra Taskers</title>
+      <!--link to the shared styling-->
+      <link rel="stylesheet" type="text/css" href="static/styles.css">
+      <style>
+        #login {
+            background-color: #f2f3f1;
+            padding: 120px;
+            padding-top: 10px;
+            text-align: center;
+            margin: 40px auto;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            border: 2px solid black;
+        }
+
+        /*Styling the sign up button*/
+        #sButton {
+            margin: 2px;
+            padding: 2px;
+            font-size: 10px;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+        }
+
+        /*Styling the login button*/
+        #lButton {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #2d7740;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /*Styling the input fields*/
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /*Styling the login text*/
+        #l {
+            font-size: 25px;
+            font-weight: bold;
+            padding: 0px;
+            margin: 0px;
+        }
+      </style>
+
+   </head>
+   <body>
+        <!--Decorations and page options-->
+        <nav>
+            <h1>Terra Taskers</h1>
+            <img id="earth" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="earth2" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="bulb" src="static/bulb.png" width="75" length="75" alt text="innovation">
+            <img id="bulb2" src="static/bulb.png" width="75" length="75" alt text="innovation">
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/checklist">Checklist</a></li>
+                <li><a href="/feed">Feed</a></li>
+            </ul>
+        </nav>
+        <br>
+        <div id="login">
+            <p id="l">Sign Up</p>
+            <br><br>
+            <form action="{{ url_for('register') }}" method="POST">
+                <div class="box">
+                    <label>Username:</label>
+                    <input type="text" name="username">
+                </div>
+                <br>
+                <div class="box">
+                    <label>Password:</label>
+                    <input type="password" name="password">
+                </div>
+            <button type="submit" id="lButton">Submit</button>
+            </form>
+        </div>
+
+   </body>
 </html>

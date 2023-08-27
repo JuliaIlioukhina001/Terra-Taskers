@@ -1,27 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Dashboard</title>
-    <link rel="manifest" href="/manifest.json"> <!-- Manifest file for PWA -->
-    <!-- Add your service worker registration script here -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        /* Add your custom styles here */
-    </style>
-</head>
-<body class="bg-gray-900">
-    <div class="w-full p-8">
-        <h2 class="text-3xl font-semibold text-gray-100 mb-6">Welcome to Your Dashboard</h2>
-        <div class="bg-gray-800 rounded-lg p-6 shadow-md">
-            <p class="text-gray-400 mb-4">Username: {{ session['username'] }}</p>
-            <p class="text-gray-400 mb-4">Wallet ID: {{ session['wallet_id'] }}</p>
-            <p class="text-gray-400">Address: {{ session['address'] }}</p>
+<!-DOCTYPE html>
+<html>
+   <head>
+      <title>Terra Taskers</title>
+      <!--link to the shared styling-->
+      <link rel="stylesheet" type="text/css" href="static/styles.css">
+      <style>
+        #login {
+            background-color: #f2f3f1;
+            padding: 30px;
+            padding-top: 10px;
+            text-align: center;
+            margin: 40px auto;
+            transform: translate(-50%, -50%);
+            top: 74%;
+            left: 50%;
+            position: absolute;
+            border: 2px solid black;
+        }
+
+        /*Styling the sign up button*/
+        #sButton {
+            margin: 2px;
+            padding: 2px;
+            font-size: 10px;
+            position: absolute;
+            top: 2px;
+            right: 2px;
+        }
+
+        /*Styling the login button*/
+        #lButton {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #2d7740;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /*Styling the input fields*/
+        .box {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        /*Styling the login text*/
+        #l {
+            font-size: 18px;
+            font-weight: bold;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /*The location/container of the logo*/
+        #logoC{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*Setting the size of the logo*/
+        #logo {
+            height: 200px;
+            width: 200px;
+        }
+
+        /*Styling the 'About' section*/
+        #aboutUs {
+            background-color: white;
+            padding: 5px;
+            width: 700px;
+            margin: 0 auto;
+        }
+
+        /*Styling the button for the dropdown menu*/
+        #dropButton {
+            background-color: #4e765b;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /*Setting the location of the dropdown menu*/
+        #dropdown {
+            position: absolute;
+            top: 35px;
+            right: 45px;
+        }
+
+        /*Styling the container of the dropdown menu choices*/
+        .dropdown-choices {
+            display: none;
+            position: absolute;
+            background-color: #f4ebeb;
+            border: 1px solid #ddd;
+            width: 100px;
+        }
+
+        /*Styling the dropdown menu choices*/
+        .dropdown-choices a {
+            color: #333;
+            padding: 13px 18px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /*Styling the appearance of the menu choices when a user hovers their
+        mouse over one*/
+        .dropdown-choices a:hover {
+            background-color: #f1f1f1;
+        }
+
+        /*Styling the dropdown menu button when a user hovers over it*/
+        #dropdown:hover .dropdown-choices {
+            display: block;
+        }
+      </style>
+   </head>
+   <body>
+        <!--Decorations and page choices-->
+        <nav>
+            <h1>Terra Taskers</h1>
+            <img id="earth" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="earth2" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="bulb" src="static/bulb.png" width="75" length="75" alt text="innovation">
+            <img id="bulb2" src="static/bulb.png" width="75" length="75" alt text="innovation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/goals">Checklist</a></li>
+                <li><a href="/feed">Feed</a></li>
+            </ul>
+        </nav>
+        <br>
+        <!--Description of app-->
+        <div id="aboutUs">
+            <h2>About</h2>
+            <p>Terra Taskers is an app that rewards you cash for completing weekly eco-friendly activities.</p>
+            <p>Our goal is to help individuals make their lifestyle more sustainable through a fun and interactive way.</p>
         </div>
-        <div class="mt-8 flex justify-center">
-            <a href="{{ url_for('logout') }}" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">Logout</a>
+        <br><br>
+        <!--logo-->
+        <div id="logoC">
+            <img src="static/logo.png" id="logo" width="75" length="75" alt text="logo">
         </div>
-    </div>
-</body>
+        <!--Dropdown menu-->
+        <div id="dropdown">
+            <button id="dropButton">My Info</button>
+            <div class="dropdown-choices">
+            <a href="/balance">Wallet</a>
+            <a href="/logout">Log Out</a>
+            </div>
+        </div>
+
+   </body>
 </html>

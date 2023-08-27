@@ -1,0 +1,104 @@
+/*Styling the main section of the webpage*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f5ef;
+    color: #322f2f;
+    background-image: url("trees.JPG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center bottom;
+    margin: 0;
+    padding: 0;
+}
+
+/*Styling the header*/
+header {
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+/*Styling the area where the links to other sections are located*/
+nav {
+    background-color: #d8eac8;
+    position: relative;
+    margin: 0;
+}
+
+/*Styling the menu*/
+nav ul {
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+}
+
+/*Styling the links in the menu*/
+nav li {
+    margin: 0 15px;
+    display: inline-block;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+/*Styling all anchor tages*/
+a {
+    text-decoration: none;
+    color: #2d7740;
+    transition: color 0.4s ease-in-out;
+}
+
+/*Styling the navigation links when the user hovers a mouse over them*/
+a:hover {
+    color: #063913; /
+}
+
+
+main {
+    padding: 42px;
+    text-align: center;
+}
+
+/*Styling the text*/
+h1 {
+    font-size: 38px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: #0d451b;
+}
+h2 {
+    font-size: 20px;
+    text-align: center;
+}
+p {
+    text-align: center;
+    font-size: 15px;
+}
+
+/*Styling the images that are located at the top of the page*/
+#earth {
+    position: absolute;
+    top: 0;
+    left: 20%;
+}
+
+#earth2 {
+    position: absolute;
+    top: 0;
+    right: 20%;
+}
+
+#bulb {
+    position: absolute;
+    top: 0;
+    left: 10%;
+}
+
+#bulb2 {
+    position: absolute;
+    top: 0;
+    right: 10%;
+}

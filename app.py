@@ -1,5 +1,5 @@
 from accounts import *
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, make_response
 from dotenv import load_dotenv
 import os
 
@@ -99,11 +99,13 @@ def complete():
     if "username" not in session:
         return redirect(url_for("login"))
     if request.method == "POST":
-        image = request.form.get("image")
+        image = request.files["image"]
+        # Get the image from the form and save it to the static folder
+        print(image)
         username = session["username"]
         goal_name = request.form.get("goal_name")
         if complete_goal(username, goal_name, image):
-            return redirect(url_for("congrats"))
+            return redirect(url_for("feed"))
         else:
             return render_template("index.html", error="Error completing goal.")
     else:
@@ -135,34 +137,62 @@ def goals():
         return redirect(url_for("login"))
     try:
         goals = get_goals(session["username"])
-        return render_template("goals.html", goals=goals)
+        return render_template("checklist.html", goals=goals["goals"])
     except Exception as e:
         print(f"Error getting goals: {e}")
-        return render_template("goals.html", error="Error getting goals.")
+        return render_template("checklist.html", error="Error getting goals.")
 
-
-@app.route("/complete_goal", methods=["POST"])
-def complete_goal():
+@app.route("/add_goals")
+def give_goals():
     if "username" not in session:
         return redirect(url_for("login"))
-
-    goal_name = request.form.get("goal_name")
-    image = request.files.get("image")
-
-    if not goal_name or not image:
-        return render_template("goals.html", error="Please provide goal name and image.")
-
     try:
-        success = complete_goal(session["username"], goal_name,
-                                image)  # Replace with your function to complete the goal
-        if success:
-            return redirect(url_for("goals"))
-        else:
-            return render_template("goals.html", error="Error completing goal.")
+        goals = add_goals(str(session["username"]), 5)
+        redirect(url_for("goals"))
     except Exception as e:
-        print(f"Error completing goal: {e}")
-        return render_template("goals.html", error="Error completing goal.")
+        print(f"Error getting goals: {e}")
+        return render_template("checklist.html", error="Error getting goals.")
 
 
+@app.route("/cdn/<path:path>")
+def image(path):
+    """
+    Gets the images from deta and acts as a CDN for the images.
+    """
+    if "username" not in session:
+        return redirect(url_for("login"))
+    try:
+        image = get_image(path)
+        response = make_response(image)
+        response.headers.set("Content-Type", "image/jpeg")
+        return response
+    except Exception as e:
+        print(f"Error getting image: {e}")
+        return render_template("index.html", error="Error getting image.")
+
+@app.route("/feed")
+def feed():
+    if "username" not in session:
+        return redirect(url_for("login"))
+    try:
+        feed = get_feed()
+        return render_template("feed.html", feed=feed)
+    except Exception as e:
+        print(f"Error getting feed: {e}")
+        return render_template("feed.html", error="Error getting feed.")
+
+@app.route("/cashout", methods=["GET", "POST"])
+def cashout_flow():
+    if "username" not in session:
+        return redirect(url_for("login"))
+    if request.method == "POST":
+        try:
+            cashout(session["username"],request.form.get("cashoutgobrrrrrrrrrrrrrrrrrrrrrrr"))
+            return redirect(url_for("index"))
+        except Exception as e:
+            print(f"Error cashing out: {e}")
+            return render_template("index.html", error="Error cashing out.")
+    else:
+        return redirect(url_for("index"))
 if __name__ == "__main__":
     app.run(debug=True)

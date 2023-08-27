@@ -323,7 +323,7 @@ def add_image(image):
     try:
         image_db = deta.Drive("images")
         image_name = f"{random.randint(0, 1000000000)}.jpg"
-        image_db.put(image, f"{image_name}.jpg")
+        image_db.put(data=image, name=image_name, content_type="image/jpeg")
         return image_name
     except Exception as e:
         print(f"Error adding image: {e}")
@@ -346,7 +346,10 @@ def complete_goal(username, goal_name, image):
     goal = get_goal(username, goal_name)
     if goal:
         remove_goal(username, goal_name)
-        payout(username, goal['reward'])
+        users = deta.Base("users")
+        user = users.get(username)
+        wallet_id = user['wallet_id']
+        payout(wallet_id, goal['reward'])
         image_name = add_image(image)
         if not image_name:
             return False
@@ -356,9 +359,69 @@ def complete_goal(username, goal_name, image):
             "goal": goal_name,
             "reward": goal['reward'],
             "image": image_name
-
         })
         return True
     else:
         print("Possible payout theft detected!")
+        return False
+
+
+def get_image(name):
+    drive = deta.Drive("images")
+    image = drive.get(name)
+    return image.read()
+
+
+def get_feed():
+    """
+    Returns the feed of completed goals at random as well as the link for the image.
+
+    Returns:
+        list: A list containing the feed.
+    """
+    db = deta.Base("completed_goals")
+    goals = db.fetch(limit=10)
+    feed = []
+    print(goals.items)
+    for goal in goals.items:
+        feed.append({
+            "username": goal['username'],
+            "goal": goal['goal'],
+            "reward": goal['reward'],
+            "image": goal['image'],
+        })
+    return feed
+
+
+def cashout(username,wallet_address):
+    """
+    Cashout the user's balance.
+
+    Args:
+        username (str): The username of the user.
+
+    Returns:
+        bool: True if successful, else False.
+    """
+    try:
+        users = deta.Base("users")
+        user = users.get(username)
+        wallet_id = user['wallet_id']
+        balance = get_balance(wallet_id)
+        try:
+            url = "https://api-sandbox.circle.com/v1/transfers"
+            address = get_address(str(wallet_id))
+            payload = {
+                "idempotencyKey": str(uuid.uuid4()),
+                "source": {"type": "wallet", "id": wallet_id},
+                "amount": {"amount": str(balance), "currency": "USD"},
+                "destination": {"type": "blockchain", "address": wallet_address, "chain": "FLOW"}
+            }
+            requests.post(url, json=payload, headers=HEADERS)
+            return True
+        except Exception as e:
+            print(f"Error initiating payout: {e}")
+            return False
+    except Exception as e:
+        print(f"Error cashing out: {e}")
         return False

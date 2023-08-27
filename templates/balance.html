@@ -1,26 +1,96 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Balance</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css">
-</head>
-<body class="bg-gray-900">
-    <div class="w-full p-8">
-        <h2 class="text-3xl font-semibold text-gray-100 mb-6">Wallet Balance</h2>
-        {% if balance is defined %}
-        <div class="bg-gray-800 rounded-lg p-6 shadow-md">
-            <p class="text-gray-400 mb-4">Username: {{ session['username'] }}</p>
-            <p class="text-gray-400 mb-4">Wallet ID: {{ session['wallet_id'] }}</p>
-            <p class="text-gray-400 mb-4">Balance: {{ balance }}</p>
+<!-DOCTYPE html>
+<html>
+   <head>
+      <title>Terra Taskers</title>
+      <!--link to the shared styling-->
+      <link rel="stylesheet" type="text/css" href="static/styles.css">
+      <style>
+        /*Styling the button*/
+        #lButton {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #2d7740;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+        /*Styling the wallet text*/
+        #l {
+            font-size: 40px;
+            font-weight: bold;
+            padding: 0px;
+        }
+        /*The location/container of the wallet*/
+        #walletC{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*Setting the size of the wallet*/
+        #wallet {
+            height: 250px;
+            width: 400px;
+        }
+
+
+        #f {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #usdc {
+            display: absolute;
+            flex-direction: column;
+            align-items: center;
+            bottom:90%;
+            transform: translate(-50%, -50%);
+            top: 75%;
+            left: 50%;
+            position: absolute;
+            background-color: rgb(223, 227, 223);
+            padding: 30px;
+            padding-bottom: 30px;
+        }
+      </style>
+
+   </head>
+   <body>
+        <!--Decorations and page options-->
+        <nav>
+            <h1>Terra Taskers</h1>
+            <img id="earth" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="earth2" src="static/earth.png" width="100" length="100" alt text="polluted earth">
+            <img id="bulb" src="static/bulb.png" width="75" length="75" alt text="innovation">
+            <img id="bulb2" src="static/bulb.png" width="75" length="75" alt text="innovation">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/goals">Checklist</a></li>
+                <li><a href="/feed">Feed</a></li>
+            </ul>
+        </nav>
+        <br><br>
+        <h1 id="title">${{ balance }}</h1>
+        <p id="l">Wallet</p>
+        <div id="walletC">
+            <img id="wallet" src="static/wallet.png" width="100" length="100" alt text="wallet">
         </div>
-        {% elif error is defined %}
-        <p class="text-red-500 mt-4">{{ error }}</p>
-        {% endif %}
-        <div class="mt-8 flex justify-center">
-            <a href="{{ url_for('logout') }}" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500">Logout</a>
-        </div>
-    </div>
-</body>
+
+        <br><br>
+        <form div="f">
+            <div id="usdc">
+                <label>FLOW Address:</label>
+                <input type="password" name="cashoutgobrrrrrrrrrrrrrrrrrrrrrrr">
+            </div>
+            <button type="submit" id="lButton">Redeem Money</button>
+        </form>
+
+   </body>
 </html>
