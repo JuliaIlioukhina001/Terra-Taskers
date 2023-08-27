@@ -16,7 +16,7 @@
 
 **Terra Taskers** was born out of the urgent need to combat climate change and inspire global citizens to take actionable steps toward a greener future. The project aims to address the challenge of finding impactful changes in daily routines and sustaining motivation to continue eco-friendly practices. By integrating extrinsic motivation and the power of blockchain technology, Terra Taskers provides a platform for users to engage in green tasks while being rewarded for their efforts.
 
-## What it Does
+## What It Does
 
 Terra Taskers offers users a weekly list of specific tasks designed to promote environmentally friendly behaviors. Upon task completion, users can submit photographic evidence, earning them a payment through Circle and a spot on the global feed. The payment system not only offsets the costs associated with eco-friendly practices but also encourages users to actively participate in preserving the environment. The global feed showcases user achievements, fostering a sense of community and motivation. Terra Taskers thus employs both extrinsic rewards and social accountability to drive consistent commitment to eco-conscious actions.
 
@@ -38,7 +38,7 @@ The implementation of the social media-inspired global feed emerged as a complex
 
 Terra Taskers led the team to explore and embrace Web3 technologies. Circle's user-friendly integration surprised the team, and the simplicity of Flow's usage highlighted the potential of blockchain solutions. This experience underscored the value of Web3 tools in future projects, bolstering the team's confidence in their utilization.
 
-## What's Next for Terra Taskers
+## What's Next For Terra Taskers
 
 The roadmap for Terra Taskers includes implementing AI to generate alternative text for images, enhancing feed accessibility for screen reader users. AI-driven content moderation is another goal, relieving the development team of manual oversight. Additionally, an AI-powered API could diversify task recommendations, considering cultural nuances. Collaborations with environmentally friendly companies and organizations are envisioned, introducing diverse funding sources while promoting impactful tasks and products.
 
