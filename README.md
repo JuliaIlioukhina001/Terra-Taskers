@@ -1,6 +1,6 @@
 # Terra Taskers
 
-![Terra Taskers Logo]([https://your-image-url.com](https://media.discordapp.net/attachments/1144676956168781824/1145125242746974218/logo.png?width=660&height=655))
+![Terra Taskers Logo](https://media.discordapp.net/attachments/1144676956168781824/1145125242746974218/logo.png?width=660&height=655)
 
 ## Table of Contents
 
